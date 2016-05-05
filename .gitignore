@@ -9,6 +9,9 @@
 
 *.xyz
 *.prm
+*.exe
+*.u2d
+*.fdz
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
