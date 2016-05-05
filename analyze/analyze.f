@@ -42,6 +42,11 @@ c
       character*120 record
       character*120 string
       character*120 xyzfile
+      
+c     add gradient support to analyze 
+   
+      logical doforce
+c
 c
 c
 c     set up the structure and mechanics calculation
@@ -64,11 +69,13 @@ c
      &           /,' Details for All Individual Interactions [D]',
      &           /,' Electrostatic Moments and Principle Axes [M]',
      &           /,' Internal Virial, dE/dV Values & Pressure [V]',
-     &           /,' Connectivity Lists for Each of the Atoms [C]')
+     &           /,' Connectivity Lists for Each of the Atoms [C]',
+     &           /,' List the Force (Gradient) on the Atoms [F]')
+         
    20    continue
          write (iout,30)
    30    format (/,' Enter the Desired Analysis Types',
-     &              ' [G,P,E,A,L,D,M,V,C] :  ',$)
+     &              ' [G,P,E,A,L,D,M,V,C,F] :  ',$)
          read (input,40,err=20)  string
    40    format (a120)
       end if
@@ -84,6 +91,9 @@ c
       domoment = .false.
       dovirial = .false.
       doconect = .false.
+      
+      doforce  = .false.
+      
       call upcase (string)
       do i = 1, trimtext(string)
          letter = string(i:i)
@@ -96,7 +106,9 @@ c
          if (letter .eq. 'M')  domoment = .true.
          if (letter .eq. 'V')  dovirial = .true.
          if (letter .eq. 'C')  doconect = .true.
+         if (letter .eq. 'F')  doforce  = .true.
       end do
+      
 c
 c     perform dynamic allocation of some local arrays
 c
@@ -201,9 +213,13 @@ c
    90       format (/,' Analysis for Archive Structure :',8x,i8)
          end if
 c
-c     make the call to compute the potential energy
-c
-         if (doenergy .or. doatom .or. dolarge)  call enrgyze
+c     make the call to compute the potential energy (and get force)
+c        
+         if (doforce) then
+              call gradze (active)
+         else if (doenergy .or. doatom .or. dolarge) then
+              call enrgyze
+         end if
 c
 c     energy partitioning by potential energy components
 c
@@ -1278,6 +1294,8 @@ c
       implicit none
       real*8 energy
       character*120 fstr
+      
+
 c
 c
 c     perform the energy analysis by atom and component
@@ -1302,6 +1320,87 @@ c
      &   write (iout,fstr)  einter
       return
       end
+      
+c
+c
+c     ################################################################
+c     ##                                                            ##
+c     ##  subroutine gradze                                         ##
+c     ##  compute & report energy and gradient analysis            ##
+c     ##  copyright: Mioaren Xia                                    ##
+c     ##                                                            ##
+c     ################################################################
+c
+c
+c     "gradze" is an auxiliary routine for the analyze program
+c     that performs the energy analysis and gradient calculation 
+c     then prints the total and intermolecular energies
+c
+c
+      subroutine gradze (active)
+      use sizes
+      use atoms
+      use inform
+      use inter
+      use iounit
+      use limits
+      use molcul
+      use atomid
+      use units
+      implicit none
+      real*8 energy
+      character*120 fstr
+      real*8, allocatable :: derivs(:,:)
+      logical active(*)
+      integer i
+      
+      
+c
+c     perform dynamic allocation of some local arrays
+c
+      allocate (derivs(3,n))
+
+c
+c
+c     perform the energy analysis by atom and component
+c
+      call gradient(energy,derivs)
+c
+c     print out the total potential energy of the system
+c
+      fstr = '(/,'' Total Potential Energy :'',8x,f16.4,'' Kcal/mole'')'
+      if (digits .ge. 6)  fstr(32:39) = '6x,f18.6'
+      if (digits .ge. 8)  fstr(32:39) = '4x,f20.8'
+      if (abs(energy) .ge. 1.0d10)  fstr(35:35) = 'd'
+      write (iout,fstr)  energy
+c
+c     intermolecular energy for systems with multiple molecules
+c
+      fstr = '(/,'' Intermolecular Energy :'',9x,f16.4,'' Kcal/mole'')'
+      if (digits .ge. 6)  fstr(31:38) = '7x,f18.6'
+      if (digits .ge. 8)  fstr(31:38) = '5x,f20.8'
+      if (abs(einter) .ge. 1.0d10)  fstr(34:34) = 'd'
+      if (nmol.gt.1 .and. nmol.lt.n .and. .not.use_ewald)
+     &   write (iout,fstr)  einter
+      
+      fstr = '(/,''              Forces  ( kcal/Bohr ) '')'
+      write (iout,fstr)
+      fstr = '(/,'' Atom - Symbol'',15x,''X'',15x,''Y'',15x,''Z'',/)'
+      write (iout,fstr)
+      fstr = '(i6,'' - '',A3,3x,6f17.8,3x,6f17.8,3x,6f17.8)'
+      do i = 1, n
+c         if (active(i)) then
+               write (iout,fstr)  i,name(i),-derivs(1,i)/bohr
+     &           ,-derivs(2,i)/bohr ,-derivs(3,i)/bohr
+c         end if
+      end do
+      
+      deallocate (derivs)
+      
+      return
+      end       
+      
+      
 c
 c
 c     ##############################################################
