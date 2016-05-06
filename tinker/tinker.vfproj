@@ -387,7 +387,7 @@
 		<File RelativePath=".\moment.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\moments.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\mutate.f"/>
-		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\nblist.f"/>
+		<File RelativePath=".\nblist.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\nextarg.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\nexttext.f"/>
 		<File RelativePath=".\nonpol.f"/>
@@ -440,7 +440,7 @@
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\readmol.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\readmol2.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\readpdb.f"/>
-		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\readprm.f"/>
+		<File RelativePath=".\readprm.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\readseq.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\readxyz.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\replica.f"/>
@@ -457,7 +457,7 @@
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\search.f"/>
 		<File RelativePath=".\sequen.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\server.f"/>
-		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\shakeup.f"/>
+		<File RelativePath=".\shakeup.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\sigmoid.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\sktstuff.f"/>
 		<File RelativePath=".\socket.f"/>
@@ -470,7 +470,7 @@
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\temper.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\tncg.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\torphase.f"/>
-		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\torque.f"/>
+		<File RelativePath=".\torque.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\trimtext.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\unitcell.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\verlet.f"/>

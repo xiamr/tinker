@@ -1390,8 +1390,8 @@ c
       fstr = '(i6,'' - '',A3,3x,6f17.8,3x,6f17.8,3x,6f17.8)'
       do i = 1, n
 c         if (active(i)) then
-               write (iout,fstr)  i,name(i),-derivs(1,i)/bohr
-     &           ,-derivs(2,i)/bohr ,-derivs(3,i)/bohr
+               write (iout,fstr)  i,name(i),-derivs(1,i)*bohr
+     &           ,-derivs(2,i)*bohr ,-derivs(3,i)*bohr
 c         end if
       end do
       
