@@ -136,7 +136,7 @@
 		<File RelativePath=".\titles.f"/>
 		<File RelativePath=".\torpot.f"/>
 		<File RelativePath=".\tors.f"/>
-		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\torsions.f"/>
+		<File RelativePath=".\torsions.f"/>
 		<File RelativePath=".\tortor.f"/>
 		<File RelativePath=".\units.f"/>
 		<File RelativePath=".\uprior.f"/>
