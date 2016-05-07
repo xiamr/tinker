@@ -153,9 +153,9 @@
 		<File RelativePath=".\zcoord.f"/></Filter>
 		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"/>
 		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
-		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\active.f"/>
-		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\analysis.f"/>
-		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\angles.f"/>
+		<File RelativePath=".\active.f"/>
+		<File RelativePath=".\analysis.f"/>
+		<File RelativePath=".\angles.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\attach.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\basefile.f"/>
 		<File RelativePath="D:\XiaMiaoren\software\tinker7.1\tinker-7.1.2\tinker\source\beeman.f"/>
