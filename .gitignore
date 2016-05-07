@@ -7,11 +7,11 @@
 *.userosscache
 *.sln.docstates
 
+*.fdz
+*.u2d
 *.xyz
 *.prm
 *.exe
-*.u2d
-*.fdz
 
 
 
