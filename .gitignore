@@ -7,11 +7,13 @@
 *.userosscache
 *.sln.docstates
 
+*.fdz
+*.u2d
 *.xyz
 *.prm
 *.exe
-*.fdz
-*.u2d
+
+
 
 
 # User-specific files (MonoDevelop/Xamarin Studio)
