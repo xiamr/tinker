@@ -11,6 +11,7 @@
 *.prm
 *.exe
 *.fdz
+*.u2d
 
 
 # User-specific files (MonoDevelop/Xamarin Studio)
